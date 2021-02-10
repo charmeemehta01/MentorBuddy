@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const menteeController = require('../controller/mentee');
+const auth = require('../controller/auth');
+router.post('/signin', menteeController.authenticate);
+router.post('/session', auth.isAuth, menteeController.session);
+router.post('/sendFile', menteeController.sendFile);
+router.post('/sendMail', menteeController.sendMail);
+router.post('/create_order', menteeController.create_order);
+module.exports = router;

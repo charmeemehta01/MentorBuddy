@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const mentorController = require('../controller/mentor');
+const auth = require('../controller/auth');
+router.post('/add', auth.isAuth, mentorController.add);
+router.post('/getall', auth.isAuth, mentorController.getall);
+router.post('/getallF', auth.isAuth, mentorController.getallF);
+router.post('/getbyfield', auth.isAuth, mentorController.getbyfield);
+router.post('/id/:getbyID', auth.isAuth, mentorController.getByID);
+router.post('/remove/:getbyID', auth.isAuth, mentorController.remove);
+module.exports = router;
